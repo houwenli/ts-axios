@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-11 13:59:31
- * @LastEditTime: 2020-12-11 14:29:00
+ * @LastEditTime: 2020-12-11 20:09:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /typescript/ts-axios/ts-axios/src/helpers/data.ts
@@ -18,3 +18,14 @@
     } 
     return data
  }
+
+ export function transformResponse(data: any): any {
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data)
+      } catch (e) {
+        // do nothing
+      }
+    }
+    return data
+  }

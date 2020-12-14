@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-10 21:19:22
- * @LastEditTime: 2020-12-11 16:25:45
+ * @LastEditTime: 2020-12-12 15:12:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /typescript/ts-axios/ts-axios/examples/base/app.ts
@@ -73,7 +73,7 @@ axios({
     method: 'post',
     url: '/base/post',
     headers: {
-        'content-type': 'application/json;charset=utf-8'
+        'Content-Type': 'application/json;charset=utf-8'
     },
     data: {
       a: 1,
@@ -142,4 +142,13 @@ axios({
     }
   }).then((res) => {
     console.log(res)
+  })
+
+  axios({
+    method: 'get',
+    url: '/error/get'
+  }).then((res) => {
+    console.log(res)
+  }).catch((e) => {
+    console.log(e)
   })

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-10 15:52:22
- * @LastEditTime: 2020-12-11 14:40:53
+ * @LastEditTime: 2020-12-12 15:26:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /typescript/ts-axios/ts-axios/examples/server.js
@@ -66,6 +66,25 @@ router.post('/base/buffer', function (req, res) {
         let buf = Buffer.concat(msg)
         res.json(buf.toJSON())
     })
+})
+
+router.get('/error/get', function(req, res) {
+    if (Math.random() > 0.5) {
+      res.json({
+        msg: `hello world`
+      })
+    } else {
+      res.status(500)
+      res.end()
+    }
+})
+
+router.get('/error/timeout', function(req, res) {
+    setTimeout(() => {
+      res.json({
+        msg: `hello world`
+      })
+    }, 3000)
 })
 
 app.use(router)
